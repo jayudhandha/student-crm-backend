@@ -3,4 +3,4 @@ const expAppModule = require('./app')
 
 const server = app.createServer(expAppModule);
 
-server.listen(3000)
+server.listen(process.env.PORT || 3000)
