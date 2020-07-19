@@ -4,5 +4,3 @@ const expAppModule = require('./app')
 const server = app.createServer(expAppModule);
 
 server.listen(3000)
-
-// GET POST DELETE PUT
