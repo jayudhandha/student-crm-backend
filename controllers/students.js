@@ -59,9 +59,18 @@ exports.listStudents = (req, res) => {
       .limit(pageSize)
   }
 
-  stdQuery.then(students => {
-    res.status(200).json(students);
-  })
+  stdQuery
+    .then(students => {
+      fetchedStudent = students;
+      return Student.count();
+    })
+    .then(count => {
+      res.status(200).json({
+        message: "Student fetched successfully!",
+        students: fetchedStudent,
+        maxStudents: count
+      });
+    });
 }
 
 exports.getStudent = (req, res) => {
